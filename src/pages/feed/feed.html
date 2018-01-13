@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Accueil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list> 
+    <ion-item *ngFor="let feed of feedList" (click)="goToFeed(feed)">
+        <ion-avatar ion-row>
+            <img [src]="feed.user_img">
+            <ion-col>
+              <h2>{{feed.user_firstname}} {{feed.user_lastname}}</h2>
+              <p>{{formatFromNowDate(feed.date_publication)}}</p>
+            </ion-col>
+        </ion-avatar>
+        <div class="item-body">
+            <p>{{feed.title}}</p>
+            <img class="full-image" *ngIf="feed.img" [src]="feed.img">
+            <p>
+                <a href="#">{{feed.nb_comment}} Commentaires</a>
+            </p>
+        </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

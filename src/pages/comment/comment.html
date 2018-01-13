@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Publier
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="item-avatar">
+        <ion-avatar ion-row>
+            <img [src]="feed.user_img">
+            <ion-col>
+              <h2>{{feed.user_firstname}} {{feed.user_lastname}}</h2>
+              <p>{{formatFromNowDate(feed.date_publication)}}</p>
+            </ion-col>
+        </ion-avatar>
+    </ion-item>
+    <form name="form" class="" (ngSubmit)="addArticle(form)">
+        <ion-item>
+            <ion-label floating>Titre *</ion-label>
+            <ion-input name="title" [(ngModel)]="form.title" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Url de l'image</ion-label>
+            <ion-input name="url" [(ngModel)]="form.url" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Description *</ion-label>
+            <ion-textarea name="description" [(ngModel)]="form.description" type="text" required></ion-textarea>
+        </ion-item>
+        <div padding>
+            <button ion-button color="primary" type="submit" block>Valider</button>
+          </div>
+    </form>
+</ion-content>

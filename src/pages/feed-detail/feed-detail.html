@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{feed.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+      <ion-avatar ion-row>
+          <img [src]="feed.user_img">
+          <ion-col>
+            <h2>{{feed.user_firstname}} {{feed.user_lastname}}</h2>
+            <p>{{formatFromNowDate(feed.date_publication)}}</p>
+          </ion-col>
+      </ion-avatar>
+      <div class="item-body">
+          <p>{{feed.description}}</p>
+          <img class="full-image" *ngIf="feed.img" [src]="feed.img">
+          <p>
+              <a href="#">{{feed.nb_comment}} Commentaires</a>
+          </p>
+      </div>
+  </ion-item>
+</ion-content>

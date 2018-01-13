@@ -1,0 +1,13 @@
+page-feed, page-feed-detail {
+    ion-avatar .col {
+        padding: 0 0 0 10px;
+    }
+    .item-body {
+        p {
+            padding: 10px 0;
+        }
+        .full-image {
+            width: 100%;
+        }
+    }
+}
