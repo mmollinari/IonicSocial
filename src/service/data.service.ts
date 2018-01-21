@@ -17,7 +17,7 @@ export class DataService {
         this.storage.get('feedList').then((data) => {
             this.feedList = data;
             if(this.feedList == null) {
-              this.http.get("../assets/data.json").map(res => res.json()).subscribe(data => {
+              this.http.get("assets/data.json").map(res => res.json()).subscribe(data => {
                 this.feedList = data;
                 resolve(this.feedList);
               }, (error) => {
