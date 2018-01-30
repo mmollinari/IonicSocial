@@ -1,38 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/Observable/of';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class DataService {
   feedList: any;
-  constructor(public http: Http, public storage: Storage) {
+  constructor(public http: HttpClient, public storage: Storage) {
     this.http = http;
     this.feedList = [];
   }
 
-  getFeedList(): Promise<any> {    
-    return new Promise((resolve, reject) => {
-      if(this.feedList.length == 0) {
-        this.storage.get('feedList').then((data) => {
-            this.feedList = data;
-            if(this.feedList == null) {
-              this.http.get("assets/data.json").map(res => res.json()).subscribe(data => {
-                this.feedList = data;
-                resolve(this.feedList);
-              }, (error) => {
-                console.log("erreur lors de la récupération",error);
-                resolve("error");
-              });
-            }
-            else {
-              resolve(this.feedList); 
-            }
-        });
-      } else {
-        resolve(this.feedList); 
-      }
-    });
+  getFeedList(): Observable<any>{
+    if(this.feedList.length == 0) {
+      return of(this.storage.get('feedList')).pipe(
+        tap( (res: any) => {
+          if(res.feed == null) {
+            Observable.throw(new Error());
+          }
+          else {
+            this.feedList = res.feed;
+          }
+        }), 
+        catchError(err => this.http.get("assets/data.json").pipe(
+          tap( (res: any) => {
+            this.feedList = res.feed;
+            console.log(res)
+          })
+        )) 
+      );
+    }
+    else {
+      return of({ feed:this.feedList });
+    }
+    
   }
   
   addFeedToList(feed) {
@@ -41,7 +45,7 @@ export class DataService {
   }
 
   saveFeedToList() {
-    this.storage.set('feedList', this.feedList);
+    this.storage.set('feedList', {"feed":this.feedList});
   }
 
-}
+} 

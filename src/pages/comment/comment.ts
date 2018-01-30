@@ -16,10 +16,10 @@ export class CommentPage {
   constructor(public navCtrl: NavController, public dataService: DataService, public alertCtrl: AlertController) {
     this.feed = {};
     this.feedLength = 0;
-    dataService.getFeedList().then(data => 
+    dataService.getFeedList().subscribe(data => 
     {
-      this.feed = data[0];
-      this.feedLength = data.length;
+      this.feed = data.feed[0];
+      this.feedLength = data.feed.length;
     }); 
     this.form = {
         title: "",

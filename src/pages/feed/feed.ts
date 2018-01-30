@@ -16,10 +16,11 @@ export class FeedPage {
     moment.locale('fr');
     this.feedList = []; 
   }
+
   ionViewDidLoad() {
-    this.dataService.getFeedList().then(data => 
+    this.dataService.getFeedList().subscribe(data => 
       {
-        this.feedList = data;
+        this.feedList = data.feed;
         this.feedList.sort(function (a, b) {
           return moment(b.date_publication, 'DD/MM/YYYY HH:mm:ss').valueOf() - moment(a.date_publication, 'DD/MM/YYYY HH:mm:ss').valueOf();
         });
