@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CommentPage } from '../comment/comment';
-import { ContactPage } from '../contact/contact';
+import { EventPage } from '../event/event';
 import { FeedPage } from '../feed/feed';
 
 @Component({
@@ -11,7 +11,7 @@ export class TabsPage {
 
   tabFeedRoot = FeedPage;
   tab2Root = CommentPage;
-  tab3Root = ContactPage;
+  tab3Root = EventPage;
 
   constructor() {
 

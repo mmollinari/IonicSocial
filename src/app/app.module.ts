@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 
 import { CommentPage } from '../pages/comment/comment';
-import { ContactPage } from '../pages/contact/contact';
+import { EventPage } from '../pages/event/event';
+import { EventDetailPage } from '../pages/event-detail/event-detail';
 import { FeedDetailPage } from '../pages/feed-detail/feed-detail';
 import { FeedPage } from '../pages/feed/feed';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -14,12 +15,25 @@ import { DataService } from '../service/data.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { FirebaseProvider } from '../service/firebase';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCI4R9PWUqV8rCovvSG-xDsRSf0NAI2goU",
+  authDomain: "ionicsocial-e0cdc.firebaseapp.com",
+  databaseURL: "https://ionicsocial-e0cdc.firebaseio.com",
+  projectId: "ionicsocial-e0cdc",
+  storageBucket: "ionicsocial-e0cdc.appspot.com",
+  messagingSenderId: "255177853631"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     CommentPage,
-    ContactPage,
+    EventPage,
+    EventDetailPage,
     FeedDetailPage,
     FeedPage,
     TabsPage
@@ -27,6 +41,8 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
@@ -34,7 +50,8 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     CommentPage,
-    ContactPage,
+    EventPage,
+    EventDetailPage,
     FeedDetailPage,
     FeedPage,
     TabsPage
@@ -43,7 +60,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     DataService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider
   ]
 })
 export class AppModule {}

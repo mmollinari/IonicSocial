@@ -1,0 +1,38 @@
+{
+    "events": [ {
+        "id_event": 0,
+        "title": "OM vs Saint-Etienne",
+        "address": "Stade Geoffroy-Guichard, 42000 Saint-Etienne",
+        "date": "09/02/2018 20h45",
+        "type": "foot",
+        "latitude": "45,4605",
+        "longitude": "4,3901"
+    },
+    {
+        "id_event": 1,
+        "title": "Handball féminin TSCVH - 8ième de finale de la coupe de france",
+        "address": "Palais des Sports, 83000 Toulon",
+        "date": "09/02/2018 20h30",
+        "type": "hand",
+        "latitude": "43,1260",
+        "longitude": "5,9145"
+    },
+    {
+        "id_event": 2,
+        "title": "RCT vs Stade Français",
+        "address": "Stade Mayol, 83000 Toulon",
+        "date": "17/02/2018 14h45",
+        "type": "rugby",
+        "latitude": "43,1188",
+        "longitude": "5,9361"
+    },
+    {
+        "id_event": 3,
+        "title": "OM vs Bordeaux",
+        "address": "Stade Orange Vélodrome, 13008 Marseille",
+        "date": "18/02/2018 21h00",
+        "type": "foot",
+        "latitude": "43,2696",
+        "longitude": "5,3961"
+    }]
+}

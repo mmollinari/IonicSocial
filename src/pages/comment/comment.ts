@@ -50,24 +50,23 @@ export class CommentPage {
           nb_comment: 0
       }
       this.dataService.addFeedToList(newFeed);
-    // feeds.save();
-    let alert = this.alertCtrl.create({
-      title: 'Félicitation',
-      subTitle: 'Vous avez publié un nouvel article',  
-      buttons: [
-        {
-          text: 'ok',
-          handler: () => {
-            this.form = {
-                       title: "",
-                       url: "",
-                       description: ""
-                   };
+      let alert = this.alertCtrl.create({
+        title: 'Félicitation',
+        subTitle: 'Vous avez publié un nouvel article',  
+        buttons: [
+          {
+            text: 'ok',
+            handler: () => {
+              this.form = {
+                        title: "",
+                        url: "",
+                        description: ""
+                    };
+            }
           }
-        }
-      ]
-    });
-    alert.present();
+        ]
+      });
+      alert.present();
     }
   }
 

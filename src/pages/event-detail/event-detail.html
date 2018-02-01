@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Evénement
+    </ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Annuler</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-avatar ion-row>
+        <ion-icon name="{{getIcon(event.type)}}" item-start></ion-icon>
+        <h2 item-start>{{event.title}}</h2>
+      </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <p>Date</p>
+      <ion-note item-end>{{event.date}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <p>Latitude</p>
+      <ion-note item-end>{{event.latitude}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <p>longitude</p>
+      <ion-note item-end>{{event.longitude}}</ion-note>
+    </ion-item>
+    <div padding>
+      <button ion-button color="primary" (click)="addToCalendar()" block>Ajouter au calendrier</button>
+    </div>
+  </ion-list>
+</ion-content>

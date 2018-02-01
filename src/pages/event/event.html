@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Evénements
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Liste des événements sportifs à venir</ion-list-header>
+    <ion-item *ngFor="let event of eventList" (click)="presentEventModal(event)">
+      <ion-icon name="{{getIcon(event.type)}}" item-start></ion-icon>
+      <h2>{{event.title}}</h2>
+      <!-- <p>{{formatFromNowDate(event.date)}}</p> -->
+      <p>{{event.address}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

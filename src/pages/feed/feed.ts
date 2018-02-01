@@ -24,7 +24,8 @@ export class FeedPage {
         this.feedList.sort(function (a, b) {
           return moment(b.date_publication, 'DD/MM/YYYY HH:mm:ss').valueOf() - moment(a.date_publication, 'DD/MM/YYYY HH:mm:ss').valueOf();
         });
-      }); 
+      }
+    ); 
   }
 
   formatFromNowDate(strDate) {
