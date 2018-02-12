@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { Calendar } from '@ionic-native/calendar';
 import { MyApp } from './app.component';
 
 import { CommentPage } from '../pages/comment/comment';
@@ -60,6 +61,7 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     DataService,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider
   ]

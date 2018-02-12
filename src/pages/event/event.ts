@@ -28,7 +28,7 @@ export class EventPage {
       case "foot":
         iconName = "football"
         break; 
-      case "hand":
+      case "hand": 
         iconName = "basketball"
         break; 
       case "rugby":
